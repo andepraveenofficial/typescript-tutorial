@@ -1,0 +1,15 @@
+{
+  "name": "production",
+  "version": "1.0.0",
+  "description": "* `tsc --init` creates tsconfig.json file\r * `npm init -y` setup node environment",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
