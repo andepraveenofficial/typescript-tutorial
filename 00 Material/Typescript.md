@@ -11,6 +11,7 @@
 * Typescript Datatypes
 * Variable Declaration
 * Operators
+* type
 
 </details>
 
@@ -293,3 +294,11 @@ sum = 10 + "twenty" // Error
 </details>
 
 ---
+
+<details>
+<summary>type</summary>
+
+## type
+
+
+</details>

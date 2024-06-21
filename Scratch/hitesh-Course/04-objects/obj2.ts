@@ -8,7 +8,6 @@ type User = {
     cardDetails?:number  // optional
 }
 
-
 function createUser(user:User){}
 
 let myUser:User = {
