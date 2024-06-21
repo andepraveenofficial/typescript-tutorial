@@ -5,6 +5,8 @@
 
 ## Index
 * Introduction
+* JS vs TS
+* Setup
 
 </details>
 
@@ -68,3 +70,116 @@ addTwo(5);
 
 
 </details>
+
+---
+
+<details>
+<summary>JS vs TS</summary>
+
+## JS vs TS
+* JS -> Javascript is a Dynamically Types Language
+* TS -> Typescript is a Statically Typed Language
+
+### Javascript
+```js
+// Javascript
+
+
+/* -----> variable declaration & re-assignment <----- */ 
+
+let a = 10;
+a = 20;
+a = "twenty";
+a = true;
+a = ["Apple", "Banana"];
+a = {name:"praveen", age:28};
+a = function(){}
+a = null;
+
+
+/* -----> Function Declaration <----- */ 
+
+function user(name, age){
+    console.log(name, age);
+}
+
+user("praveen", 28);  // praveen 28
+user(28, "praveen");  // 28 praveen
+user("praveen");  // praveen undefined
+user(28);  // 28 undefined
+```
+
+### Typescript
+```ts
+// Typescript 
+
+/* -----> variable declaration & re-assignment <----- */ 
+
+let a:number = 10
+a = 20 // No Error
+
+a = "twenty"  // Error
+a = true  // Error
+a = ["Apple", "Banana"]  // Error
+a = function(){}  // Error
+a = null  // Error
+
+
+/* -----> Function Declaration <----- */ 
+function user(name:string, age:number):void{
+    console.log(name, age)
+}
+
+user("praveen", 28)  // praveen 28
+user(28, "praveen")  // Error
+user("praveen")  // Error
+user(28)  // Error
+```
+</details>
+
+---
+
+<details>
+<summary>Setup</summary>
+
+## Setup
+1. Install node
+2. `npm install -g typescript`
+3. convert __TS__ to __JS__ by using TSC (typescript compiler)
+   * Example : `tsc index.ts`
+
+### Version Checking 
+![Version Checking](./Assets/02-setup/01-version-checking.png)
+
+### Run The Typescript file
+* Run the TS file with third-party package
+* `npm install ts-node`
+* Run TS file -> `ts-node index.ts`
+
+
+### Realtime Project Setup
+1. Install Node
+2. `npm init -y` Setup Node Environment -> Create package.json file
+3. create `index.html`
+4. create two folders :
+    * __src__ : development
+    * __dist__ : production
+5. `tsc --init` create __tsconfig.json__ file
+6. create `index.ts` file in src folder
+7. modify __tsconfig.json__ file -> __"ourDir":"./dist"__ for tell dist folder path
+8. Run the Application on watch mode -> `tsc -w`
+   * It automatically generates `JS` file of `TS` in dist folder when changes in TS files.
+9. Link generated `JS` file in dist folder to `index.html`
+10. Start the Application (index.html) on live-server using __vscode extension live server__.
+11. `git init`  && `.gitignore` for untrack the node_modules 
+12. Optional -> use third-party-package 
+    * `npm install lite-server`
+    * Lightweight development only node server that serves a web app, opens it in the browser, refreshes when html or javascript change
+    * Start : `lite-server` 
+13. `npm start` -> start the application
+
+</details>
+
+---
+
+

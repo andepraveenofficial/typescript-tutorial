@@ -1,0 +1,15 @@
+{
+  "name": "realtime-project-setup",
+  "version": "1.0.0",
+  "description": "1. Install Node\r 2. `npm init -y` Setup Node Environment -> Create package.json file\r 3. create `index.html`\r 4. create two folders :\r     * __src__ : development\r     * __dist__ : production\r 5. `tsc --init` create __tsconfig.json__ file\r 6. create `index.ts` file in src\r 7. modify __tsconfig.json__ file -> __\"ourDir\":\"./dist\"__\r 8. Run the Application on watch mode -> `tsc -w`\r    * It generate `JS` file of `TS` in dist folder\r 9. Link generated `JS` file in dist folder to `index.html`\r 10. Start the Application (index.html) on live-server using __vscode extension live server__.\r 11. `.gitignore` for untract the node_modules \r 12. Optional -> use third-party-package \r     * `npm install lite-server`\r     * Lightweight development only node server that serves a web app, opens it in the browser, refreshes when html or javascript change\r     * Start : `lite-server`",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
