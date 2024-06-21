@@ -7,6 +7,10 @@
 * Introduction
 * JS vs TS
 * Setup
+* Execute Typescript
+* Typescript Datatypes
+* Variable Declaration
+* Operators
 
 </details>
 
@@ -156,7 +160,6 @@ user(28)  // Error
 * `npm install ts-node`
 * Run TS file -> `ts-node index.ts`
 
-
 ### Realtime Project Setup
 1. Install Node
 2. `npm init -y` Setup Node Environment -> Create package.json file
@@ -182,4 +185,111 @@ user(28)  // Error
 
 ---
 
+<details>
+<summary>Execute Typescript</summary>
 
+## Execute Typescript
+1. Create a file with `.ts` extension -> `index.ts`
+2. Write Typescript code in the file
+3. Compile the Typescript code using `tsc` command -> `tsc index.ts`
+4. Run the generated JavaScript file using `node` command -> `node index.js`
+
+![tsc](./Assets/03-execute-typescript/02-tsc.png)
+
+![Execute Typescript](./Assets/03-execute-typescript/01-execute-typescript.png)
+
+</details>
+
+---
+
+<details>
+<summary>Typescript Datatypes</summary>
+
+## Typescript Datatypes
+
+![Typescript Types](./Assets/04-datatypes/01-datatypes.png)
+</details>
+
+---
+
+<details>
+<summary>Variable Declaration</summary>
+
+## Variable Declaration
+* use camelCase for variable
+* Example : __myName__
+
+### Syntax
+* `let variableName:type = value`
+
+### Example
+```ts 
+let age: number = 20;
+// age = "twenty";  // Error
+
+age = 27;  // No Error
+console.log(age); // 27
+```
+### Datatypes
+* string
+* number
+* boolean
+* null
+* undefined
+* any
+
+```ts 
+// String
+let myName: string = "Ande Praveen";
+
+// number 
+let myAge: number = 28;
+
+// boolean
+let isMale: boolean = true;
+
+// null 
+let test: null = null;
+
+// undefined 
+let abc: undefined = undefined;
+
+// any -> we can assign anything like Javascript -> avoid the type checking
+let a: any = "Text";
+a = 10;
+a = true;
+a = null;
+a = {};
+```
+
+
+
+</details>
+
+---
+
+<details>
+<summary>Operators</summary>
+
+## Operators
+1. Arithmetic -> +, -, *, /, %
+2. Shorthand math -> +=, -=, *=, /=
+3. Increment/ Decrement -> ++, --
+4. Conditional -> < , >, <= , >=, !==
+5. Logical -> &&, ||, !
+6. Ternary -> ?:
+
+### Example
+```ts
+let val1:number = 10
+let val2:number = 20
+
+let sum:number = val1 + val2
+console.log(sum) // 30
+
+sum = 10 + "twenty" // Error
+```
+
+</details>
+
+---
