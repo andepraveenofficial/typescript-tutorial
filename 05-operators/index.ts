@@ -58,7 +58,7 @@ if (inRelation && parentsAgreed) {
     console.log("Get Marry Soon");
 }
 else {
-    console.log("wait untill parents Agreed")
+    console.log("wait until parents Agreed")
 }
 
 
@@ -67,7 +67,6 @@ else {
 /*
     (condition) ? true part : false part;
 */
-
 
 marks = 85;
 (marks >= 35) ? results = "You Cleared the Exam" : results = "You failed the Exam";

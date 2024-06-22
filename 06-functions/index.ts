@@ -1,6 +1,6 @@
 // Functions
 
-/* -----> using any datatype technique to add type <----- */
+/* -----> using 'any' datatype technique to add type <----- */
 function square(num:number){
     return num*num
 }

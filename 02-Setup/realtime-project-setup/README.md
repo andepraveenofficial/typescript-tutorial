@@ -1,7 +1,7 @@
 # Realtime Project Setup
 
 ### Setup
-1. Install Node
+1. Install node
 2. `npm init -y` Setup Node Environment -> Create package.json file
 3. create `index.html`
 4. create two folders :
