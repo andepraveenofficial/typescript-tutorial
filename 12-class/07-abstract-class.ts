@@ -1,6 +1,7 @@
 // abstract 
 
-// Abstract classes cannot create object its own
+// Abstract classes cannot create object by its own
+
 // it is used as a blue-print
 abstract class TakePhoto {
     constructor(

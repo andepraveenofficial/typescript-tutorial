@@ -12,6 +12,7 @@
 * Variable Declaration
 * Operators
 * type
+* Interface
 
 </details>
 
@@ -300,5 +301,16 @@ sum = 10 + "twenty" // Error
 
 ## type
 
+
+</details>
+
+---
+
+<details>
+<summary>Interface</summary>
+
+## Interface
+* Interface is used to define the shape of an object.
+* interface can be extended using the extends keyword.
 
 </details>

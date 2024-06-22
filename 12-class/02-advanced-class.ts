@@ -1,13 +1,12 @@
 // Class
 
-// Other Syntax
+// Other Syntax for mention the Type
 
 class User{
     readonly course:string = "React"
     constructor(
         public name:string, 
-        public email:string,
-        private userId:string
+        public email:string
     ){
         this.name = name
         this.email = email
@@ -15,6 +14,6 @@ class User{
 }
 
 
-const praveen = new User("praveen", "praveen@gmail.com", "12345");
+const praveen = new User("praveen", "praveen@example.com");
 console.log(praveen)
 
