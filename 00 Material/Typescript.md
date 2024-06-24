@@ -17,7 +17,8 @@
 * OOPs
 * Modules
 * Keywords
-* Union
+* Symbols
+
 </details>
 
 ---
@@ -26,9 +27,9 @@
 <summary>Introduction</summary>
 
 ## Introduction
-* Typescript is a statically typed language.
-* Typescript is a superset of Javascript.
-* TypeScript includes all features of JavaScript and adds extra features on top.
+* Typescript is a __statically typed__ language.
+* It is a superset of Javascript.
+* It includes all features of JavaScript and adds extra features on top.
 * TypeScript checks for errors in your code before you run it.
 * It verifies that variables and functions have the correct types.
 * Typescript is a development tool. if you want to run, you need to convert `TS` into `JS`.
@@ -87,8 +88,8 @@ addTwo(5);
 <summary>JS vs TS</summary>
 
 ## JS vs TS
-* JS -> Javascript is a Dynamically Types Language
-* TS -> Typescript is a Statically Typed Language
+* JS -> Javascript is a __Dynamically Types__ Language
+* TS -> Typescript is a __Statically Typed__ Language
 
 ### Javascript
 ```js
@@ -165,6 +166,7 @@ user(28)  // Error
 * Run the TS file with third-party package
 * `npm install ts-node`
 * Run TS file -> `ts-node index.ts`
+* It is used to run `TS` file without convert to `JS` file.
 
 ### Realtime Project Setup
 1. Install Node
@@ -183,7 +185,7 @@ user(28)  // Error
 11. `git init`  && `.gitignore` for untrack the node_modules 
 12. Optional -> use third-party-package 
     * `npm install lite-server`
-    * Opens the app in the browser and refreshes it when HTML or JavaScript changes.
+    * It opens the app in the browser and refreshes it when HTML or JavaScript changes.
     * Start : `lite-server` 
 13. `npm start` -> start the application
 
@@ -215,6 +217,16 @@ user(28)  // Error
 
 ![Typescript Types](./Assets/04-datatypes/01-datatypes.png)
 
+### Primitive Datatypes
+1. number
+2. string
+3. boolean
+4. null
+5. Undefined
+6. any
+7. unknown
+ 
+
 </details>
 
 ---
@@ -237,20 +249,21 @@ let age: number = 20;
 age = 27;  // No Error
 console.log(age); // 27
 ```
-### Datatypes
-* string
-* number
-* boolean
-* null
-* undefined
-* any
+### Primitive Datatypes
+1. number
+2. string
+3. boolean
+4. null
+5. Undefined
+6. any
+7. unknown
 
 ```ts 
-// String
-let myName: string = "Ande Praveen";
-
 // number 
 let myAge: number = 28;
+
+// String
+let myName: string = "Ande Praveen";
 
 // boolean
 let isMale: boolean = true;
@@ -267,6 +280,30 @@ a = 10;
 a = true;
 a = null;
 a = {};
+
+// unknown -> It has type checking
+let b: unknown;
+console.log(typeof b)
+```
+
+### Reference Types
+
+```ts
+// Array of strings
+let arr1:string[] = ["one", "two", "three"];
+
+// Array of numbers
+let arr2: number[] = [1, 2, 3]
+```
+
+### union -> |
+Pipe Symbol -> |
+It is used to provide flexible datatypes.
+
+```ts
+let salary:number | string;
+salary = 100000;
+salary = "100000"
 ```
 
 </details>
@@ -303,22 +340,30 @@ sum = 10 + "twenty" // Error
 <summary>Functions</summary>
 
 ## Functions
-* Function Declaration
-* Function with Multiple Arguments
-* Function declaration with Default Values
+* Parameters & Arguments
+* Default Values
+* Function return
+   - void -> returns undefined
+   - types
+   - never ->  doesn't returns anything
+* Iteration 
+
+### Parameters & Arguments
 
 ```ts
-// Function Declaration
-function square(num:number){
-    return num*num
+// Function Declaration with Parameters
+function add(a: number, b: number) {
+    const result = a +b;
+    console.log(result)
 }
 
-// const twoSquare = square("two") // Error -> Argument Type
-square(2); // 4  ->  send only number argument
+// Call the Function with Arguments
+// add(10, "twenty")  // Error -> Argument Type
+add(10, 20) // 30 ->  send only number type arguments
 ```
 
 ```ts
-// Function with Multiple Arguments
+// // Function Declaration with Parameters
 function signUp(name:string, email:string, age:number){
     console.log(name, email, age)
 }
@@ -327,6 +372,7 @@ function signUp(name:string, email:string, age:number){
 signUp("praveen", "praveen@example.com", 27)  // OK
 ```
 
+### Default Values
 ```ts
 // Function declaration with Default Values
 function logIn(name:string, email:string, isPaid:boolean=false){
@@ -336,33 +382,41 @@ logIn("praveen", "praveen@example.com", true)  // OK
 logIn("praveen", "praveen@example.com")  // OK
 ```
 
+### Function return
 
-### return type
-```ts
-function isPositive(num:number):boolean{
-    if (num > 0){
-        return true
-    }
-    return false   
-}
-
-const result:boolean = isPositive(10)
-```
-
-### return void
 Indicates that a function does not return any value.
 ```ts
-function greet(name: string): void {
-    console.log(`Hello, ${name}!`);
+// Void -> returns undefined
+
+// Function returns nothing
+function add(a: number, b: number):void {
+    const result = a +b;
+    console.log(result)
 }
+
+add(10, 20)
 ```
 
-### never return
 ```ts
-// Some functions never returns a value
+// never -> Some functions never returns a value
+// It mostly used to show Errors
+
 function handleError(err:string):never{
     throw new Error(err);
 }
+
+handleError("This is Error")
+```
+
+```ts
+// It Returns mentioned type
+function add(a: number, b: number):number {
+    const result = a +b;
+    return result
+}
+
+let output = add(10,20)
+console.log(output)  // 30
 ```
 
 ### Iteration
@@ -381,22 +435,11 @@ const output2 = numList2.map((num:string | number) => num)
 ### type & interface & Generics
 
 ### type
-In TypeScript, a type is a way to describe the shape and structure of data. Types help ensure that the data you work with matches the expected format, which helps prevent errors.
+* type is a way to describe the structure of data.
 
 ```ts
 // variable
 let name: string = "Praveen";
-```
-
-```ts
-
-type ID = number | string;
-
-type User = {
-  id: ID;
-  name: string;
-};
-
 ```
 
 ```ts
@@ -405,6 +448,7 @@ type User = {
     name: string
     email:string
     age:number
+    city?:string  // Optional Property
 }
 
 const user:User = {
@@ -416,8 +460,40 @@ const user:User = {
 console.log(user)
 ```
 
+```ts
+// Concatenation
+type Person = {
+   firstName: string;
+   lastName: string;
+}
+
+type Employee = Person & {
+   employeeId: number;
+}
+
+let employee: Employee = {
+   firstName: "Praveen",
+   lastName: "Ande",
+   employeeId: 12345
+};
+
+console.log(employee);
+
+```
+
+```ts
+// Union
+type ID = number | string;
+
+type User = {
+  id: ID;
+  name: string;
+};
+
+```
+
 ### interface
-Interfaces are similar to types but are used to define the structure of an object. They are often used to define the shape of a class or an object and can be extended.
+* Interfaces are used to define the structure of an object.
 
 ```ts
 // Object Shape
@@ -432,7 +508,7 @@ let person: Person = {
 };
 
 
-// Extending Interfaces
+// Concatenation -> Extending Interfaces
 
 interface Employee extends Person {
   employeeId: number;
@@ -465,52 +541,56 @@ let employee: Person = {
 
 ```
 
-### Generics
-* Generics provide a way to create reusable and flexible components. They allow you to define a component or function that can work with different types without sacrificing type safety.
-*  Instead of specifying a specific data type (like int or string), you use a placeholder (often called a type parameter) that can be replaced with any type when you use the generic.
+### Combination of type & interface
+
 ```ts
-function identity<T>(arg: T): T {
-  return arg;
+// Concatenation
+type Person = {
+   firstName: string;
+   lastName: string;
 }
 
-let result1 = identity<string>("Hello");
-let result2 = identity<number>(123);
+interface Employee extends Person{
+    employeeId: number;
+}
+
+let employee: Employee = {
+   firstName: "Praveen",
+   lastName: "Ande",
+   employeeId: 12345
+};
+
+console.log(employee);
+```
+
+
+```ts
+// Concatenation
+interface Person{
+   firstName: string;
+   lastName: string;
+}
+
+type Employee =  Person & {
+    employeeId: number;
+}
+
+let employee: Employee = {
+   firstName: "Praveen",
+   lastName: "Ande",
+   employeeId: 12345
+};
+
+console.log(employee);
 
 ```
 
-```ts
-class Box<T> {
-  content: T;
-
-  constructor(content: T) {
-    this.content = content;
-  }
-
-  getContent(): T {
-    return this.content;
-  }
-}
-
-let stringBox = new Box<string>("A string");
-let numberBox = new Box<number>(100);
-
-```
-
-</details>
-
----
-
-<details>
-<summary>Objects</summary>
-
-## Objects
+### Nested
 
 ```ts
 // Nested Object 
 
 interface Address {
-    street: string;
-    city: string;
     state: string;
     country: string;
 }
@@ -519,24 +599,39 @@ interface Address {
 interface Student {
     name: string;
     age: number;
-    course: string;
     address: Address
 }
 let student: Student = {
-    name: "Arjun Reddy",
-    age: 25,
-    course: "MBBS",
+    name: "Praveen",
+    age: 28,
     address: {
-        street: "Jubilee hills",
-        city: "Hyderabad",
-        state: "Telangana",
+        state: "Andhra Pradesh",
         country: "India"
 
     }
 }
 
 console.log(student)
+
+let lotsOfStudents:Student[] = [];
 ```
+
+### Generics
+* Generics in programming allow you to create reusable functions or classes that can work with different types of data by using placeholders instead of specific types. This flexibility helps in writing code that can handle various data without repetition.
+
+```ts
+function fn<T>(arg: T): T {
+    return arg;
+}
+
+let result1 = fn<number>(10); // T is replaced with number
+let result2 = fn<string>("Hello World"); // T is replaced with string
+
+console.log(result1); // 10
+console.log(result2); // Hello World
+
+```
+
 </details>
 
 ---
@@ -545,39 +640,70 @@ console.log(student)
 <summary>OOPs</summary>
 
 ## OOPs
- **OOPs** stands for **Object Oriented Programming** language
+**OOPs** stands for **Object Oriented Programming** language
 
+### Basic Class
+```ts
+// Basic Class
+
+class User{
+    name:string
+    age:number
+    
+    constructor(name:string, age:number){
+        this.name = name;
+        this.age = age;
+    }
+}
+
+const praveen = new User("praveen", 28);
+console.log(praveen)  // User { name: 'praveen', age: 28 }
+
+```
+
+### Access Modifiers
+* public
+* private -> private Property and only accessible within the class
+* protected
 
 ```ts 
-// Classes Objects
-
+// Mobile class
 class Mobile {
-    /*
-    private 
-    public 
-    protected
-    */
-    //  private Property and only accessible within class 'Mobile'
-    private brand: string;
-    private color: string;
-    private price: number;
+    // Properties
+    public brand: string;    // Accessible from  anywhere
+    private color: string;   // accessible only within the class
+    protected price: number; // accessible within the class and subclasses
 
+    // Constructor
     constructor(brand: string, color: string, price: number) {
         this.brand = brand;
         this.color = color;
         this.price = price;
     }
+
+    // Public method
+    public displayDetails(): void {
+        console.log("I am public method");
+    }
+
+    // Protected method
+    protected applyDiscount(discount: number): void {
+        console.log("I am protected method");
+    }
+
+    // Private method
+    private calculateTotalPrice(quantity: number): number {
+        console.log("I am private method")
+    }
 }
 
+// Example usage
+let mobile = new Mobile("Apple", "Red", 35000);
 
-let mobile = new Mobile("Apple", "Red", 35000)
-console.log(mobile)
-// console.log(mobile.brand)  // Property 'brand' is private and only accessible within class 'Mobile'
 ```
 
 ```ts 
 // Classes Objects
-
 class Mobile {
     private brand: string;
     private color: string;
@@ -644,6 +770,7 @@ class BasicCalc {
 
 
 let basicCalc: BasicCalc = new BasicCalc();
+
 basicCalc.add(10, 20); // 30
 basicCalc.sub(10, 20); // -10
 
@@ -792,7 +919,6 @@ export interface IStudent {
 ```ts Student.ts 
 import { IStudent } from "./IStudent";
 
-
 export class Student implements IStudent {
     firstName: string;
     lastName: string;
@@ -843,10 +969,12 @@ export class Student implements IStudent {
 --- 
 
 <details>
-<summary>Union</summary>
+<summary>Symbols</summary>
 
-## Union
-* Pipe Symbol -> | 
+## Symbols
+* ? -> Optional
+* | -> Union -> Pipe Symbol
+* & -> Concatenation
 
 </details>
 

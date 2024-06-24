@@ -1,14 +1,15 @@
-import {Dispatch, FC, SetStateAction} from 'react'
+import React from 'react'
 
 
 /* -----> Component <----- */
 
-interface ChildProps{
+interface Props{
     data:string
-    setData:Dispatch<SetStateAction<string>>
+    setData:React.Dispatch<React.SetStateAction<string>>
+    age? : number // Default Props
 }
 
-const Child:FC<ChildProps> = (props) => {
+const Child:React.FC<Props> = (props) => {
     const {data, setData} = props
   return (
     <div>
