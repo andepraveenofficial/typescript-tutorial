@@ -14,9 +14,10 @@
 * Functions
 * type & interface & Generics
 * Objects
+* OOPs
+* Modules
 * Keywords
 * Union
-* OOPs
 </details>
 
 ---
