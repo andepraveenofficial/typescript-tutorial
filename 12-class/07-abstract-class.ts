@@ -12,7 +12,7 @@ abstract class TakePhoto {
     abstract getDetails():void // we compulsary implement in child class
         getReelTime():number{
             return 10
-        }// It is chice implement or not
+        }// It is choice implement or not
 }
 
 

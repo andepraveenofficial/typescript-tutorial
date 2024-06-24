@@ -7,7 +7,6 @@ const user = {
     age:28
 }
 
-
 /* -----> object as argument <----- */
 function createUser(user:{name:string, email:string, age:number}){
     console.log(user)

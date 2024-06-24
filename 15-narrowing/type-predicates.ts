@@ -18,3 +18,4 @@ function getFood(pet :Fish | Bird){
         return "bird food"
     }
 }
+

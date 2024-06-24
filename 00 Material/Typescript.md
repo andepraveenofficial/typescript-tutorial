@@ -12,7 +12,10 @@
 * Variable Declaration
 * Operators
 * Functions
-* type & interface
+* type & interface & Generics
+* Objects
+* Keywords
+* Union
 * OOPs
 </details>
 
@@ -300,9 +303,11 @@ sum = 10 + "twenty" // Error
 
 ## Functions
 * Function Declaration
+* Function with Multiple Arguments
+* Function declaration with Default Values
 
-### Function Declaration
 ```ts
+// Function Declaration
 function square(num:number){
     return num*num
 }
@@ -311,9 +316,8 @@ function square(num:number){
 square(2); // 4  ->  send only number argument
 ```
 
-### Multiple Arguments
-
 ```ts
+// Function with Multiple Arguments
 function signUp(name:string, email:string, age:number){
     console.log(name, email, age)
 }
@@ -322,10 +326,8 @@ function signUp(name:string, email:string, age:number){
 signUp("praveen", "praveen@example.com", 27)  // OK
 ```
 
-### Default Values
-
 ```ts
-
+// Function declaration with Default Values
 function logIn(name:string, email:string, isPaid:boolean=false){
     console.log(name, email, isPaid)
 }
@@ -346,7 +348,7 @@ function isPositive(num:number):boolean{
 const result:boolean = isPositive(10)
 ```
 
-### void
+### return void
 Indicates that a function does not return any value.
 ```ts
 function greet(name: string): void {
@@ -373,17 +375,168 @@ const output2 = numList2.map((num:string | number) => num)
 ---
 
 <details>
-<summary>type & interface</summary>
+<summary>type & interface & Generics</summary>
 
-## type & interface
+### type & interface & Generics
 
 ### type
+In TypeScript, a type is a way to describe the shape and structure of data. Types help ensure that the data you work with matches the expected format, which helps prevent errors.
+
+```ts
+// variable
+let name: string = "Praveen";
+```
+
+```ts
+
+type ID = number | string;
+
+type User = {
+  id: ID;
+  name: string;
+};
+
+```
+
+```ts
+// Object
+type User = {
+    name: string
+    email:string
+    age:number
+}
+
+const user:User = {
+  name:"Praveen",
+  email:"praveen@example.com",
+  age:28
+}
+
+console.log(user)
+```
 
 ### interface
-* Interface is used to define the shape of an object.
-* interface can be extended using the extends keyword.
+Interfaces are similar to types but are used to define the structure of an object. They are often used to define the shape of a class or an object and can be extended.
+
+```ts
+// Object Shape
+interface Person {
+  name: string;
+  age: number;
+}
+
+let person: Person = {
+  name: "Praveen",
+  age: 28
+};
+
+
+// Extending Interfaces
+
+interface Employee extends Person {
+  employeeId: number;
+}
+
+let employee: Employee = {
+  name: "Praveen",
+  age: 28,
+  employeeId: 1234
+};
+```
+
+```ts
+// Object Shape
+interface Person {
+  name: string;
+  age: number;
+}
+
+// Open-Interface
+interface Person{
+    employeeId:number
+}
+
+let employee: Person = {
+  name: "Praveen",
+  age: 28,
+  employeeId: 1234
+};
+
+```
+
+### Generics
+* Generics provide a way to create reusable and flexible components. They allow you to define a component or function that can work with different types without sacrificing type safety.
+*  Instead of specifying a specific data type (like int or string), you use a placeholder (often called a type parameter) that can be replaced with any type when you use the generic.
+```ts
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+let result1 = identity<string>("Hello");
+let result2 = identity<number>(123);
+
+```
+
+```ts
+class Box<T> {
+  content: T;
+
+  constructor(content: T) {
+    this.content = content;
+  }
+
+  getContent(): T {
+    return this.content;
+  }
+}
+
+let stringBox = new Box<string>("A string");
+let numberBox = new Box<number>(100);
+
+```
 
 </details>
+---
+
+<details>
+<summary>Objects</summary>
+
+## Objects
+
+```ts
+// Nested Object 
+
+interface Address {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+}
+
+
+interface Student {
+    name: string;
+    age: number;
+    course: string;
+    address: Address
+}
+let student: Student = {
+    name: "Arjun Reddy",
+    age: 25,
+    course: "MBBS",
+    address: {
+        street: "Jubilee hills",
+        city: "Hyderabad",
+        state: "Telangana",
+        country: "India"
+
+    }
+}
+
+console.log(student)
+```
+</details>
+
 ---
 
 <details>
@@ -570,6 +723,36 @@ class Student implements IStudent {
 let student = new Student("Arjun", "Reddy", 26, "MBBS");
 student.biography(); 
 ```
+
+
+### Implements
+When a class implements an interface, it promises to include all the things listed in that interface.
+```ts
+interface TakePhoto {
+    cameraMode: string;
+    filter: string;
+    burst: number;
+}
+
+interface Story {
+    createStory(): void;
+}
+
+
+class Instagram implements TakePhoto, Story {
+    constructor(
+        public cameraMode: string,
+        public filter: string,
+        public burst: number
+    ) {}
+
+    createStory(): void {
+        console.log("story was created");
+    }
+}
+
+```
+
 </details>
 
 ---
@@ -640,149 +823,29 @@ export class Student implements IStudent {
 
 ---
 
+<details>
+<summary>Keywords</summary>
+
+## Keywords
+* Accessability Keywords
+
+### Accessability Keywords
+* readonly
+* optional
+* public
+* private
+* protected
 
 </details>
 
+--- 
 
+<details>
+<summary>Union</summary>
 
+## Union
+* Pipe Symbol -> | 
 
+</details>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* Interface
-* implements
-* type
-
-```ts
-// Nested Object 
-
-interface Address {
-    street: string;
-    city: string;
-    state: string;
-    country: string;
-}
-
-
-interface Student {
-    name: string;
-    age: number;
-    course: string;
-    address: Address
-}
-let student: Student = {
-    name: "Arjun Reddy",
-    age: 25,
-    course: "MBBS",
-    address: {
-        street: "Jubilee hills",
-        city: "Hyderabad",
-        state: "Telangana",
-        country: "India"
-
-    }
-}
-
-console.log(student)
-```
-
-
-```ts 
-/*
-    Array 
-*/
-
-// Object Array 
-interface Employee {
-    sno: string;
-    name: string;
-    age: number;
-    designation: string;
-    location: string;
-}
-
-let employees: Employee[] = [
-    {
-        sno: "123",
-        name: "Praveen",
-        age: 27,
-        designation: "Software Engineer",
-        location: "Bangalore"
-    },
-    {
-        sno: "124",
-        name: "Sweti",
-        age: 48,
-        designation: "Software Engineer",
-        location: "Hyderabad"
-    }
-];
-
-console.log(employees[1]);
-
-
-let jrEmployee: Employee[] = employees.filter((emp) => emp.age < 30);
-console.log(jrEmployee)
-```
-
-
-```ts 
-// Functions 
-
-/*
-    If function return something that type if void,
-    Otherwise declare a particular type.
-*/
-let greet = (name: string): void => {
-    let msg: string = `Hello ${name}`
-    console.log(msg)
-};
-
-greet("Praveen")  // Hello Praveen
-
-
-// function with return Type 
-let add = (a: number, b: number): number => {
-    let result: number = a + b;
-    return result
-}
-let output: number = add(10, 20);
-console.log(output)  // 30
-
-```
-
-```ts 
-// Function -> void  -> does not return anything
-let greet = (name: string): void => {
-    console.log(`Hello ${name}`)
-}
-greet("Praveen");
-
-// Function -> string  -> it return string
-let greet2 = (name: string): string => {
-    return name
-}
-console.log(greet2("Praveen"))
-
-```
+---
