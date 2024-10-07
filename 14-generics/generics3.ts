@@ -12,8 +12,6 @@ function fn<T, U>(valOne:T, valTwo:U):object{
 
 fn(3, "5")
 
-
-
 function fn1<T, U extends number>(valOne:T, valTwo:U):object{
     return {
         valOne,

@@ -29,6 +29,10 @@ a = true;
 a = null;
 a = {};
 
+/* -----> unknown <----- */
+let b:unknown;
+console.log(typeof b)
+
 /* -----> mention the Type using 'any' Technique <----- */
 let city:string
 

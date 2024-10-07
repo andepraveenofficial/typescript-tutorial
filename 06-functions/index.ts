@@ -26,7 +26,6 @@ function signUp(name:string, email:string, age:number){
 // signUp("praveen", 27, "praveen@example.com") // follow the argument type and order also
 signUp("praveen", "praveen@example.com", 27)  // OK
 
-
 /* -----> Default Values <----- */
 
 function logIn(name:string, email:string, isPaid:boolean=false){
@@ -34,7 +33,6 @@ function logIn(name:string, email:string, isPaid:boolean=false){
 }
 logIn("praveen", "praveen@example.com", true)  // OK
 logIn("praveen", "praveen@example.com")  // OK
-
 
 /* -----> Function return type <----- */
 function isPositive(num:number):boolean{

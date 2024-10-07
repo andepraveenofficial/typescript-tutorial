@@ -30,7 +30,7 @@ interface Bootle{
     type:number
 }
 
-identityFour<Bootle>({})
+identityFour<Bootle>({brand:"coco", type:4})
 
 
 

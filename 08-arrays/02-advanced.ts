@@ -5,6 +5,7 @@ Generic -> <>
 
 * The <> symbols in TypeScript are used for generics. 
 * Generics allow you to write code that can work with any type of data.
+* we can write re-usable functions
 */
 
 let arr:Array<string> = ["one", "two", "three"]
