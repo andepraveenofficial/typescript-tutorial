@@ -1,23 +1,23 @@
-# Typescript 
+# Typescript
 
 <details>
 <summary>Index</summary>
 
 ## Index
-* Introduction
-* JS vs TS
-* Setup
-* Execute Typescript
-* Typescript Datatypes
-* Variable Declaration
-* Operators
-* Functions
-* type & interface & Generics
-* Objects
-* OOPs
-* Modules
-* Keywords
-* Symbols
+
+- Introduction
+- JS vs TS
+- Setup
+- Execute Typescript
+- Typescript Datatypes
+- Variable Declaration
+- Operators
+- Functions
+- type & interface & Generics
+- OOPs
+- Modules
+- Keywords
+- Symbols
 
 </details>
 
@@ -27,27 +27,28 @@
 <summary>Introduction</summary>
 
 ## Introduction
-* Typescript is a __statically typed__ language.
-* It is a superset of Javascript.
-* It includes all features of JavaScript and adds extra features on top.
-* TypeScript checks for errors in your code before you run it.
-* It verifies that variables and functions have the correct types.
-* Typescript is a development tool. if you want to run, you need to convert `TS` into `JS`.
-* `Typescript = Type + Javascript`
+
+- Typescript is a **Statically Typed** language.
+- It is a superset of Javascript.
+- It includes all features of JavaScript and adds extra features on top.
+- TypeScript checks for errors in your code before you run it.
+- It verifies that variables and functions have the correct types.
+- Typescript is a development tool. if you want to run, you need to convert `TS` into `JS`.
+- `Typescript = Type + Javascript`
 
 ![Typescript](./Assets/01-introduction/01-typescript.png)
 
-* Compilation is the process of converting code written in a high-level programming language (like TypeScript) into a lower-level language (like JavaScript) that a computer can execute.
+- Compilation is the process of converting code written in a high-level programming language (like TypeScript) into a lower-level language (like JavaScript) that a computer can execute.
 
 ![Compile Error](./Assets/01-introduction/02-compile-error.png)
 
 ### Type Safety
 
-```ts 
+```ts
 let age: number = 20;
 // age = "twenty";  // Error
 
-age = 27;  // No Error
+age = 27; // No Error
 console.log(age); // 27
 
 // console.log(age.toUpperCase()); // Error
@@ -56,14 +57,14 @@ console.log(age); // 27
 ### Validation
 
 ```js
-// Javascript 
+// Javascript
 
-function addTwo(num){
-    if (typeof(num) === number){
-        return num+2
-    }
+function addTwo(num) {
+  if (typeof num === number) {
+    return num + 2;
+  }
 
-    return null;
+  return null;
 }
 
 addTwo(5);
@@ -72,13 +73,12 @@ addTwo(5);
 ```ts
 // Typescript
 
-function addTwo(num:number){
-    return num+2
+function addTwo(num: number) {
+  return num + 2;
 }
 
 addTwo(5);
 ```
-
 
 </details>
 
@@ -88,62 +88,65 @@ addTwo(5);
 <summary>JS vs TS</summary>
 
 ## JS vs TS
-* JS -> Javascript is a __Dynamically Types__ Language
-* TS -> Typescript is a __Statically Typed__ Language
+
+- JS -> Javascript is a **Dynamically Typed** Language
+- TS -> Typescript is a **Statically Typed** Language
 
 ### Javascript
+
 ```js
 // Javascript
 
-/* -----> variable declaration & re-assignment <----- */ 
+/* -----> variable declaration & re-assignment <----- */
 
 let a = 10;
 a = 20;
 a = "twenty";
 a = true;
 a = ["Apple", "Banana"];
-a = {name:"praveen", age:28};
-a = function(){}
+a = { name: "praveen", age: 28 };
+a = function () {};
 a = null;
 
-/* -----> Function Declaration <----- */ 
+/* -----> Function Declaration <----- */
 
-function user(name, age){
-    console.log(name, age);
+function user(name, age) {
+  console.log(`My name is ${name} and My age is ${age}`);
 }
 
-user("praveen", 28);  // praveen 28
-user(28, "praveen");  // 28 praveen
-user("praveen");  // praveen undefined
-user(28);  // 28 undefined
+user("praveen", 28); // My name is praveen and My age is 28
+user(28, "praveen"); // My name is 28 and My age is praveen
+user("praveen"); // My name is praveen and My age is undefined
+user(28); // My name is 28 and My age is undefined
 ```
 
 ### Typescript
+
 ```ts
-// Typescript 
+// Typescript
 
-/* -----> variable declaration & re-assignment <----- */ 
+/* -----> variable declaration & re-assignment <----- */
 
-let a:number = 10
-a = 20 // No Error
+let a: number = 10;
+a = 20; // No Error
 
-a = "twenty"  // Error
-a = true  // Error
-a = ["Apple", "Banana"]  // Error
-a = function(){}  // Error
-a = null  // Error
+a = "twenty"; // Error
+a = true; // Error
+a = ["Apple", "Banana"]; // Error
+a = function () {}; // Error
+a = null; // Error
 
-
-/* -----> Function Declaration <----- */ 
-function user(name:string, age:number):void{
-    console.log(name, age)
+/* -----> Function Declaration <----- */
+function user(name: string, age: number): void {
+  console.log(`My name is ${name} and My age is ${age}`);
 }
 
-user("praveen", 28)  // praveen 28
-user(28, "praveen")  // Error
-user("praveen")  // Error
-user(28)  // Error
+user("praveen", 28); // My name is praveen and My age is 28
+user(28, "praveen"); // Error
+user("praveen"); // Error
+user(28); // Error
 ```
+
 </details>
 
 ---
@@ -152,41 +155,45 @@ user(28)  // Error
 <summary>Setup</summary>
 
 ## Setup
-1. Install node
-2. `npm install -g typescript`
-3. convert __TS__ to __JS__ by using TSC (typescript compiler)
-   * Example : `tsc index.ts`
-4. Run converted `JS` file
-    * Example : `node index.js`
 
-### Version Checking 
+1. Install node
+2. Install typescript : `npm install -g typescript`
+3. convert **TS** to **JS** by using TSC (typescript compiler)
+   - Example : `tsc index.ts`
+4. Run converted `JS` file
+   - Example : `node index.js`
+
+### Version Checking
+
 ![Version Checking](./Assets/02-setup/01-version-checking.png)
 
 ### Run The Typescript file
-* Run the TS file with third-party package
-* `npm install ts-node`
-* Run TS file -> `ts-node index.ts`
-* It is used to run `TS` file without convert to `JS` file.
+
+- Run the TS file with third-party package
+- `npm install ts-node`
+- Run TS file -> `ts-node index.ts`
+- It is used to run `TS` file without convert to `JS` file.
 
 ### Realtime Project Setup
+
 1. Install Node
-2. `npm init -y` Setup Node Environment -> Create package.json file
+2. `npm init -y` Setup Node Environment -> Create `package.json` file
 3. create `index.html`
 4. create two folders :
-    * __src__ : development
-    * __dist__ : production
-5. `tsc --init` create __tsconfig.json__ file
+   - **src** : development
+   - **dist** : production
+5. `tsc --init` create **tsconfig.json** file
 6. create `index.ts` file in src folder
-7. modify __tsconfig.json__ file -> __"ourDir":"./dist"__ for tell dist folder path
+7. modify **tsconfig.json** file -> **"ourDir":"./dist"** for tell dist folder path
 8. Run the Application on watch mode -> `tsc -w`
-   * It automatically generates `JS` file of `TS` in dist folder when changes in __TS__ files.
+   - It automatically generates `JS` file of `TS` in dist folder when changes in **TS** files.
 9. Link generated `JS` file in dist folder to `index.html`
-10. Start the Application (index.html) on live-server using __vscode extension live server__.
-11. `git init`  && `.gitignore` for untrack the node_modules 
-12. Optional -> use third-party-package 
-    * `npm install lite-server`
-    * It opens the app in the browser and refreshes it when HTML or JavaScript changes.
-    * Start : `lite-server` 
+10. Start the Application (index.html) on live-server using **vscode extension live-server**.
+11. `git init` && `.gitignore` for untrack the node_modules
+12. Optional -> use third-party-package
+    - `npm install lite-server`
+    - It opens the app in the browser and refreshes it when HTML or JavaScript changes.
+    - Start : `lite-server`
 13. `npm start` -> start the application
 
 </details>
@@ -197,6 +204,7 @@ user(28)  // Error
 <summary>Execute Typescript</summary>
 
 ## Execute Typescript
+
 1. Create a file with `.ts` extension -> `index.ts`
 2. Write Typescript code in the file
 3. Compile the Typescript code using `tsc` command -> `tsc index.ts`
@@ -218,6 +226,7 @@ user(28)  // Error
 ![Typescript Types](./Assets/04-datatypes/01-datatypes.png)
 
 ### Primitive Datatypes
+
 1. number
 2. string
 3. boolean
@@ -225,7 +234,6 @@ user(28)  // Error
 5. Undefined
 6. any
 7. unknown
- 
 
 </details>
 
@@ -235,21 +243,26 @@ user(28)  // Error
 <summary>Variable Declaration</summary>
 
 ## Variable Declaration
-* use camelCase for variable
-* Example : __myName__
+
+- use camelCase for variable
+- Example : **myName**
 
 ### Syntax
-* `let variableName:type = value`
+
+- `let variableName:type = value`
 
 ### Example
-```ts 
+
+```ts
 let age: number = 20;
 // age = "twenty";  // Error
 
-age = 27;  // No Error
+age = 27; // No Error
 console.log(age); // 27
 ```
+
 ### Primitive Datatypes
+
 1. number
 2. string
 3. boolean
@@ -258,8 +271,8 @@ console.log(age); // 27
 6. any
 7. unknown
 
-```ts 
-// number 
+```ts
+// number
 let myAge: number = 28;
 
 // String
@@ -268,10 +281,10 @@ let myName: string = "Ande Praveen";
 // boolean
 let isMale: boolean = true;
 
-// null 
+// null
 let test: null = null;
 
-// undefined 
+// undefined
 let abc: undefined = undefined;
 
 // any -> we can assign anything like Javascript -> avoid the type checking
@@ -283,27 +296,28 @@ a = {};
 
 // unknown -> It has type checking
 let b: unknown;
-console.log(typeof b)
+console.log(typeof b);
 ```
 
 ### Reference Types
 
 ```ts
 // Array of strings
-let arr1:string[] = ["one", "two", "three"];
+let arr1: string[] = ["one", "two", "three"];
 
 // Array of numbers
-let arr2: number[] = [1, 2, 3]
+let arr2: number[] = [1, 2, 3];
 ```
 
 ### union -> |
+
 Pipe Symbol -> |
 It is used to provide flexible datatypes.
 
 ```ts
-let salary:number | string;
-salary = 100000;
-salary = "100000"
+let salary: number | string;
+salary = 100;
+salary = "Hundred";
 ```
 
 </details>
@@ -314,6 +328,7 @@ salary = "100000"
 <summary>Operators</summary>
 
 ## Operators
+
 1. Arithmetic -> `+, -, *, /, %`
 2. Shorthand math -> `+=, -=, *=, /=`
 3. Increment/ Decrement -> `++, --`
@@ -322,14 +337,15 @@ salary = "100000"
 6. Ternary -> `?:`
 
 ### Example
+
 ```ts
-let val1:number = 10
-let val2:number = 20
+let val1: number = 10;
+let val2: number = 20;
 
-let sum:number = val1 + val2
-console.log(sum) // 30
+let sum: number = val1 + val2;
+console.log(sum); // 30
 
-sum = 10 + "twenty" // Error
+// sum = 10 + "twenty"; // Error
 ```
 
 </details>
@@ -340,89 +356,94 @@ sum = 10 + "twenty" // Error
 <summary>Functions</summary>
 
 ## Functions
-* Parameters & Arguments
-* Default Values
-* Function return
-   - void -> returns undefined
-   - types
-   - never ->  doesn't returns anything
-* Iteration 
+
+- Parameters & Arguments
+- Default Values
+- Function return
+  - void -> returns undefined
+  - types
+  - never -> doesn't returns anything
+- Iteration
 
 ### Parameters & Arguments
 
 ```ts
 // Function Declaration with Parameters
 function add(a: number, b: number) {
-    const result = a +b;
-    console.log(result)
+  const result = a + b;
+  console.log(result);
 }
 
 // Call the Function with Arguments
 // add(10, "twenty")  // Error -> Argument Type
-add(10, 20) // 30 ->  send only number type arguments
+add(10, 20); // 30 ->  send only number type arguments
 ```
 
 ```ts
-// // Function Declaration with Parameters
-function signUp(name:string, email:string, age:number){
-    console.log(name, email, age)
+// Function Declaration with Parameters
+function signUp(name: string, email: string, age: number) {
+  console.log(name, email, age);
 }
 
 // signUp("praveen", 27, "praveen@example.com") // follow the argument type and order also
-signUp("praveen", "praveen@example.com", 27)  // OK
+signUp("praveen", "praveen@example.com", 27); // OK
 ```
 
 ### Default Values
+
 ```ts
 // Function declaration with Default Values
-function logIn(name:string, email:string, isPaid:boolean=false){
-    console.log(name, email, isPaid)
+function logIn(name: string, email: string, isPaid: boolean = false) {
+  console.log(name, email, isPaid);
 }
-logIn("praveen", "praveen@example.com", true)  // OK
-logIn("praveen", "praveen@example.com")  // OK
+logIn("praveen", "praveen@example.com", true); // OK
+logIn("praveen", "praveen@example.com"); // OK
 ```
 
 ### Function return
 
-Indicates that a function does not return any value.
+Some Functions does not return any value.
+
 ```ts
 // Void -> returns undefined
 
 // Function returns nothing
-function add(a: number, b: number):void {
-    const result = a +b;
-    console.log(result)
+function add(a: number, b: number): void {
+  const result = a + b;
+  console.log(result);
 }
 
-add(10, 20)
+add(10, 20);
 ```
 
 ```ts
 // never -> Some functions never returns a value
 // It mostly used to show Errors
 
-function handleError(err:string):never{
-    throw new Error(err);
+function handleError(err: string): never {
+  throw new Error(err);
 }
 
-handleError("This is Error")
+handleError("This is Error");
 ```
 
 ```ts
 // It Returns mentioned type
-function add(a: number, b: number):number {
-    const result = a +b;
-    return result
+function add(a: number, b: number): number {
+  const result = a + b;
+  return result;
 }
 
-let output = add(10,20)
-console.log(output)  // 30
+let output = add(10, 20);
+console.log(output); // 30
 ```
 
 ### Iteration
+
 ```ts
-const numList2 = ["one", "two", "three", 4]
-const output2 = numList2.map((num:string | number) => num)
+const arr = ["one", "two", "three", 4];
+const output = arr.map((num: string | number) => num);
+console.log(output); // ["one", "two", "three", 4]
 ```
 
 </details>
@@ -432,10 +453,11 @@ const output2 = numList2.map((num:string | number) => num)
 <details>
 <summary>type & interface & Generics</summary>
 
-### type & interface & Generics
+## type & interface & Generics
 
 ### type
-* type is a way to describe the structure of data.
+
+- `type` is a way to describe the structure of data.
 
 ```ts
 // variable
@@ -445,39 +467,42 @@ let name: string = "Praveen";
 ```ts
 // Object
 type User = {
-    name: string
-    email:string
-    age:number
-    city?:string  // Optional Property
-}
+  name: string;
+  email: string;
+  age: number;
+  city?: string; // Optional Property
+};
 
-const user:User = {
-  name:"Praveen",
-  email:"praveen@example.com",
-  age:28
-}
+const user1: User = {
+  name: "Praveen",
+  email: "praveen@example.com",
+  age: 28,
+};
 
-console.log(user)
+const user2: User = {
+  name: "Praveen",
+  email: "praveen@example.com",
+  age: 28,
+  city:"Hyderabad"
+};
 ```
 
 ```ts
 // Concatenation
 type Person = {
-   firstName: string;
-   lastName: string;
-}
-
-type Employee = Person & {
-   employeeId: number;
-}
-
-let employee: Employee = {
-   firstName: "Praveen",
-   lastName: "Ande",
-   employeeId: 12345
+  firstName: string;
+  lastName: string;
 };
 
-console.log(employee);
+type Employee = Person & {
+  employeeId: number;
+};
+
+let employee: Employee = {
+  firstName: "Praveen",
+  lastName: "Ande",
+  employeeId: 12345,
+};
 
 ```
 
@@ -489,11 +514,11 @@ type User = {
   id: ID;
   name: string;
 };
-
 ```
 
 ### interface
-* Interfaces are used to define the structure of an object.
+
+Interfaces are used to define the structure of an object.
 
 ```ts
 // Object Shape
@@ -504,9 +529,8 @@ interface Person {
 
 let person: Person = {
   name: "Praveen",
-  age: 28
+  age: 28,
 };
-
 
 // Concatenation -> Extending Interfaces
 
@@ -517,7 +541,7 @@ interface Employee extends Person {
 let employee: Employee = {
   name: "Praveen",
   age: 28,
-  employeeId: 1234
+  employeeId: 1234,
 };
 ```
 
@@ -529,16 +553,15 @@ interface Person {
 }
 
 // Open-Interface
-interface Person{
-    employeeId:number
+interface Person {
+  employeeId: number;
 }
 
 let employee: Person = {
   name: "Praveen",
   age: 28,
-  employeeId: 1234
+  employeeId: 1234,
 };
-
 ```
 
 ### Combination of type & interface
@@ -546,82 +569,76 @@ let employee: Person = {
 ```ts
 // Concatenation
 type Person = {
-   firstName: string;
-   lastName: string;
-}
+  firstName: string;
+  lastName: string;
+};
 
-interface Employee extends Person{
-    employeeId: number;
+interface Employee extends Person {
+  employeeId: number;
 }
 
 let employee: Employee = {
-   firstName: "Praveen",
-   lastName: "Ande",
-   employeeId: 12345
+  firstName: "Praveen",
+  lastName: "Ande",
+  employeeId: 12345,
 };
 
 console.log(employee);
 ```
 
-
 ```ts
 // Concatenation
-interface Person{
-   firstName: string;
-   lastName: string;
+interface Person {
+  firstName: string;
+  lastName: string;
 }
 
-type Employee =  Person & {
-    employeeId: number;
-}
-
-let employee: Employee = {
-   firstName: "Praveen",
-   lastName: "Ande",
-   employeeId: 12345
+type Employee = Person & {
+  employeeId: number;
 };
 
-console.log(employee);
+let employee: Employee = {
+  firstName: "Praveen",
+  lastName: "Ande",
+  employeeId: 12345,
+};
 
 ```
 
 ### Nested
 
 ```ts
-// Nested Object 
+// Nested Object
 
 interface Address {
-    state: string;
-    country: string;
+  state: string;
+  country: string;
 }
-
 
 interface Student {
-    name: string;
-    age: number;
-    address: Address
+  name: string;
+  age: number;
+  address: Address;
 }
 let student: Student = {
-    name: "Praveen",
-    age: 28,
-    address: {
-        state: "Andhra Pradesh",
-        country: "India"
+  name: "Praveen",
+  age: 28,
+  address: {
+    state: "Andhra Pradesh",
+    country: "India",
+  },
+};
 
-    }
-}
-
-console.log(student)
-
-let lotsOfStudents:Student[] = [];
+let lotsOfStudents: Student[] = [];
 ```
 
 ### Generics
-* Generics in programming allow you to create reusable functions or classes that can work with different types of data by using placeholders instead of specific types. This flexibility helps in writing code that can handle various data without repetition.
+
+Generics in programming allow you to create reusable functions or classes that can work with different types of data by using placeholders instead of specific types. This flexibility helps in writing code that can handle various data without repetition.
 
 ```ts
 function fn<T>(arg: T): T {
-    return arg;
+  return arg;
 }
 
 let result1 = fn<number>(10); // T is replaced with number
@@ -629,7 +646,6 @@ let result2 = fn<string>("Hello World"); // T is replaced with string
 
 console.log(result1); // 10
 console.log(result2); // Hello World
-
 ```
 
 </details>
@@ -640,246 +656,236 @@ console.log(result2); // Hello World
 <summary>OOPs</summary>
 
 ## OOPs
+
 **OOPs** stands for **Object Oriented Programming** language
 
 ### Basic Class
+
 ```ts
 // Basic Class
 
-class User{
-    name:string
-    age:number
-    
-    constructor(name:string, age:number){
-        this.name = name;
-        this.age = age;
-    }
+class User {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
 }
 
 const praveen = new User("praveen", 28);
-console.log(praveen)  // User { name: 'praveen', age: 28 }
-
+console.log(praveen); // User { name: 'praveen', age: 28 }
 ```
 
 ### Access Modifiers
-* public
-* private -> private Property and only accessible within the class
-* protected
 
-```ts 
+- public
+- private -> private Property and only accessible within the class
+- protected
+
+```ts
 // Mobile class
 class Mobile {
-    // Properties
-    public brand: string;    // Accessible from  anywhere
-    private color: string;   // accessible only within the class
-    protected price: number; // accessible within the class and subclasses
+  // Properties
+  public brand: string; // Accessible from  anywhere
+  private color: string; // Accessible only within the class
+  protected price: number; // Accessible within the class and subclasses
 
-    // Constructor
-    constructor(brand: string, color: string, price: number) {
-        this.brand = brand;
-        this.color = color;
-        this.price = price;
-    }
+  // Constructor
+  constructor(brand: string, color: string, price: number) {
+    this.brand = brand;
+    this.color = color;
+    this.price = price;
+  }
 
-    // Public method
-    public displayDetails(): void {
-        console.log("I am public method");
-    }
+  // Public method
+  public displayDetails(): void {
+    console.log("I am public method");
+  }
 
-    // Protected method
-    protected applyDiscount(discount: number): void {
-        console.log("I am protected method");
-    }
+  // Protected method
+  protected applyDiscount(discount: number): void {
+    console.log("I am protected method");
+  }
 
-    // Private method
-    private calculateTotalPrice(quantity: number): number {
-        console.log("I am private method")
-    }
+  // Private method
+  private calculateTotalPrice(quantity: number): number {
+    console.log("I am private method");
+  }
 }
 
 // Example usage
 let mobile = new Mobile("Apple", "Red", 35000);
-
 ```
 
-```ts 
+```ts
 // Classes Objects
 class Mobile {
-    private brand: string;
-    private color: string;
-    private price: number;
+  private brand: string;
+  private color: string;
+  private price: number;
 
-    constructor(brand: string, color: string, price: number) {
-        this.brand = brand;
-        this.color = color;
-        this.price = price;
-    }
+  constructor(brand: string, color: string, price: number) {
+    this.brand = brand;
+    this.color = color;
+    this.price = price;
+  }
 
-    // getter - setter 
-    public getBrand(): string {
-        return this.brand;
-    }
+  // getter - setter
+  public getBrand(): string {
+    return this.brand;
+  }
 
-    public setPrice(newPrice: number): void {
-        this.price = newPrice
-    }
+  public setPrice(newPrice: number): void {
+    this.price = newPrice;
+  }
 
-    public getPrice(): number {
-        return this.price;
-    }
+  public getPrice(): number {
+    return this.price;
+  }
 }
 
+let mobile = new Mobile("Apple", "Red", 35000);
+console.log(mobile.getBrand()); // Apple
 
-let mobile = new Mobile("Apple", "Red", 35000)
-console.log(mobile.getBrand())  // Apple
-
-console.log(mobile.getPrice());  // 35000 
+console.log(mobile.getPrice()); // 35000
 mobile.setPrice(1000);
-console.log(mobile.getPrice());  // 1000
-
+console.log(mobile.getPrice()); // 1000
 ```
 
 ### Inheritance
-```ts 
+
+```ts
 // Inheritance
 
 /*
-    Inheritance
+    Inheritance: 
     Child inherits the properties and methods of Parent.
-    -> re-usability, extends
-    
 */
 
 class BasicCalc {
-    public result: number;
+  public result: number;
 
-    constructor() {
-        this.result = 0;
-    }
+  constructor() {
+    this.result = 0;
+  }
 
-    public add(a: number, b: number): void {
-        this.result = a + b;
-        console.log(this.result)
-    }
+  public add(a: number, b: number): void {
+    this.result = a + b;
+    console.log(this.result);
+  }
 
-    public sub(a: number, b: number): void {
-        this.result = a - b;
-        console.log(this.result)
-    }
+  public sub(a: number, b: number): void {
+    this.result = a - b;
+    console.log(this.result);
+  }
 }
-
 
 let basicCalc: BasicCalc = new BasicCalc();
 
 basicCalc.add(10, 20); // 30
 basicCalc.sub(10, 20); // -10
 
-
 class AdvCalc extends BasicCalc {
-    constructor() {
-        super();  // parent class constructor
-    }
+  constructor() {
+    super(); // parent class constructor
+  }
 
-    // Extending Functionality
-    public mul(a: number, b: number): void {
-        this.result = a * b;
-        console.log(this.result)
-    }
+  // Extending Functionality
+  public mul(a: number, b: number): void {
+    this.result = a * b;
+    console.log(this.result);
+  }
 
-    // Method Overriding
-    public sub(a: number, b: number): void {
-        this.result = a - b - b;
-        console.log(this.result)
-    }
+  // Method Overriding
+  public sub(a: number, b: number): void {
+    this.result = a - b - b;
+    console.log(this.result);
+  }
 }
 
-
-let advCalc = new AdvCalc()
-advCalc.mul(10, 20);  // 200
+let advCalc = new AdvCalc();
+advCalc.mul(10, 20); // 200
 
 advCalc.add(10, 20); //30
-advCalc.sub(40, 10);  // 20
-
+advCalc.sub(40, 10); // 20
 ```
 
-### Inheritance 
+### Implements
+When a class implements an interface, it promises to include all the things listed in that interface.
 
-```ts 
+```ts
 // Interfaces
 
 interface IStudent {
-    firstName: string;
-    lastName: string;
-    age: number;
-    course: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  course: string;
 
-    fullName: () => string;
-    biography: () => void;
+  fullName: () => string;
+  biography: () => void;
 }
 
-
 class Student implements IStudent {
-    firstName: string;
-    lastName: string;
-    age: number;
-    course: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  course: string;
 
-    constructor(firstName: string, lastName: string, age: number, course: string) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.course = course;
-    }
+  constructor(
+    firstName: string,
+    lastName: string,
+    age: number,
+    course: string
+  ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.course = course;
+  }
 
-    public fullName(): string {
-        return `${this.firstName} ${this.lastName}`;
-    }
+  public fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 
-    public biography(): void {
-        let bio: string = `
+  public biography(): void {
+    let bio: string = `
             Full NAME : ${this.fullName()}
             AGE : ${this.age}
             COURSE : ${this.course}
     `;
 
-        console.log(bio)
-    }
-
+    console.log(bio);
+  }
 }
 
-
-
 let student = new Student("Arjun", "Reddy", 26, "MBBS");
-student.biography(); 
+student.biography();
 ```
-
-
-### Implements
-When a class implements an interface, it promises to include all the things listed in that interface.
 ```ts
 interface TakePhoto {
-    cameraMode: string;
-    filter: string;
-    burst: number;
+  cameraMode: string;
+  filter: string;
+  burst: number;
 }
 
 interface Story {
-    createStory(): void;
+  createStory(): void;
 }
-
 
 class Instagram implements TakePhoto, Story {
-    constructor(
-        public cameraMode: string,
-        public filter: string,
-        public burst: number
-    ) {}
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burst: number
+  ) {}
 
-    createStory(): void {
-        console.log("story was created");
-    }
+  createStory(): void {
+    console.log("story was created");
+  }
 }
-
 ```
 
 </details>
@@ -889,64 +895,67 @@ class Instagram implements TakePhoto, Story {
 <details>
 <summary>Modules</summary>
 
-## Modules 
+## Modules
+- import / export
 
-```ts App.ts 
-// Modules 
-
-/*
-import / export
-*/
-
-import { Student } from "./Student";
-
-let student = new Student("Arjun", "Reddy", 26, "MBBS");
-student.biography(); 
-```
-
-```ts IStudent.ts 
+```ts IStudent.ts
 export interface IStudent {
-    firstName: string;
-    lastName: string;
-    age: number;
-    course: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  course: string;
 
-    fullName: () => string;
-    biography: () => void;
+  fullName: () => string;
+  biography: () => void;
 }
 ```
 
-```ts Student.ts 
+```ts Student.ts
 import { IStudent } from "./IStudent";
 
 export class Student implements IStudent {
-    firstName: string;
-    lastName: string;
-    age: number;
-    course: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  course: string;
 
-    constructor(firstName: string, lastName: string, age: number, course: string) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.course = course;
-    }
+  constructor(
+    firstName: string,
+    lastName: string,
+    age: number,
+    course: string
+  ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.course = course;
+  }
 
-    public fullName(): string {
-        return `${this.firstName} ${this.lastName}`;
-    }
+  public fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 
-    public biography(): void {
-        let bio: string = `
+  public biography(): void {
+    let bio: string = `
             Full NAME : ${this.fullName()}
             AGE : ${this.age}
             COURSE : ${this.course}
     `;
 
-        console.log(bio)
-    }
+    console.log(bio);
+  }
 }
 ```
+
+```ts App.ts
+
+import { Student } from "./Student";
+
+let student:Student = new Student("Arjun", "Reddy", 26, "MBBS");
+student.biography();
+```
+
+
 </details>
 
 ---
@@ -955,26 +964,29 @@ export class Student implements IStudent {
 <summary>Keywords</summary>
 
 ## Keywords
-* Accessability Keywords
+
+- Accessability Keywords
 
 ### Accessability Keywords
-* readonly
-* optional
-* public
-* private
-* protected
+
+- readonly
+- optional
+- public
+- private
+- protected
 
 </details>
 
---- 
+---
 
 <details>
 <summary>Symbols</summary>
 
 ## Symbols
-* ? -> Optional
-* | -> Union -> Pipe Symbol
-* & -> Concatenation
+
+- ? -> Optional
+- | -> Union -> Pipe Symbol
+- & -> Concatenation
 
 </details>
 
