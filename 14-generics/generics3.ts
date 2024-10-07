@@ -22,6 +22,7 @@ function fn1<T, U extends number>(valOne:T, valTwo:U):object{
 // fn1(3, "5")  // Error
 
 /* -------------------------- */
+
 interface Database{
     connection : string,
     username:string,

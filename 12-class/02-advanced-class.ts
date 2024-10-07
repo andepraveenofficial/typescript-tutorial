@@ -14,6 +14,6 @@ class User{
 }
 
 
-const praveen = new User("praveen", "praveen@example.com");
+const praveen:User = new User("praveen", "praveen@example.com");
 console.log(praveen)
 
